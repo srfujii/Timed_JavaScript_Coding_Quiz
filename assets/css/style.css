@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5;
+    font-weight: 100%;
+}
+
+body {
+    background-color: white;
+    color:black;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 2%;
+}
+
+header p { 
+    display: flex;
+    font-size: 120%;
+}
+
+header div { 
+    display: flex;
+}
+
+h1 {
+    text-align:center;
+    margin-bottom: 3%;
+}
+
+p {
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+    max-width: 200px;
+    padding: 8px;
+    margin: 8px auto;
+    background: #eee;
+    border: 1px dotted #ddd;
+}
+
+li:hover {
+    cursor: pointer;
+    /* background-color: yellow; */
+    color: white;
+}
+
+section {
+    margin-bottom: 3%;
+}
+
+.gameDescription {
+    display: block;
+}
+
+.myscoresform {
+    display: none;
+}
+
+.success {
+    padding: 10px;
+    background-color: green;
+    color: white;
+}
+
+.error {
+    padding: 10px;
+    background-color: red;
+    color: white;
+}
+
+/*** Our Button styles ***/
+.btn {
+    border: none;
+    background-color: darkblue;
+    border-radius: 25px;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    font-size: 22px;
+    line-height: 22px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 34px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/*** Accessibility: change buttons to green when user hovers over them ***/
+.btn:hover {
+background-color: rgb(5, 173, 27);
+}
+
+.btn:focus {
+    outline: none;
+    background-color: rgb(5, 173, 27);
+    box-shadow: 0 0 0 3px darkblue;
+}
+
+button[disabled] {
+    cursor: default;
+    background: #c0c7cf;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+#timer {
+    font-weight: bolder;
+}

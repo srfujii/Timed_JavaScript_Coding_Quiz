@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <title>Timed JS Coding Quiz</title>
+</head>
+
+<body>
+    <header>
+        <p><a href = "#viewhighscorespage">View High Scores</a></p>
+        <div class = "timer"><p>Time Remaining: <span id = "timer"></span></p></div>
+    </header>
+    <h1>Coding Quiz Challenge</h1>
+    
+    <section class = "content">
+        <p class = "gameDescription">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your time remaining by 10 seconds.</p>
+    </section>
+
+    <div class="center">
+        <button type = "button" id="startgame" class="btn">Start Game!</button>
+    </div>
+
+    <div class="myscoresform">
+        <form action="#savehighscore...append to local storage">
+            <label for="fname">Enter Your Initials:</label>
+            <input type="text" id="initials" name="initials" value="">
+            <input type="submit" value="Submit">
+        </form>  
+    </div>
+
+    <script src = "assets/js/script.js"></script>
+</body>
+</html>
