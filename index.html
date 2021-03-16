@@ -9,20 +9,26 @@
 </head>
 
 <body>
+    <!-- Flexbox header displays Time Remaining and Countdown Timer -->
     <header>
-        <p><a href = "#viewhighscorespage">View High Scores</a></p>
+        <p><a id="viewhighscores" href = "#0">View High Scores</a></p>
         <div class = "timer"><p>Time Remaining: <span id = "timer"></span></p></div>
     </header>
+
+    <!-- Main Headline, Centered -->
     <h1>Coding Quiz Challenge</h1>
     
+    <!-- Content Section for displaying game instructions, and questions/answers once game has begun -->
     <section class = "content">
-        <p class = "gameDescription">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your time remaining by 10 seconds.</p>
+        <p class = "gameDescription">Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your time remaining by 5 seconds.</p>
     </section>
 
+    <!-- Centered "Start Game" Button -->
     <div class="center">
         <button type = "button" id="startgame" class="btn">Start Game!</button>
     </div>
 
+    <!-- Form Hidden until end of game-- displays input box for initials & submit button -->
     <div class="myscoresform">
         <form action="#savehighscore...append to local storage">
             <label for="fname">Enter Your Initials:</label>
@@ -32,6 +38,7 @@
     </div>
     <div class="highscores"></div>
 
+    <!-- Link to JS code -->
     <script src = "assets/js/script.js"></script>
 </body>
 </html>

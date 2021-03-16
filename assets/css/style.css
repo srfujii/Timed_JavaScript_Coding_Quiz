@@ -1,3 +1,6 @@
+/*** Timed Javascript Quiz Game CSS Code ***/
+
+/*** Global Default Styles ***/
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +14,7 @@ body {
     color:black;
 }
 
+/*** Header is a flexbox with its two items pushed to far left and far right of screen ***/
 header {
     display: flex;
     justify-content: space-between;
@@ -26,15 +30,18 @@ header div {
     display: flex;
 }
 
+/*** Coding Quiz Challenge Headline ***/
 h1 {
     text-align:center;
     margin-bottom: 3%;
 }
 
+/*** Align content to center ***/
 p {
     text-align: center;
 }
 
+/*** List items have no text-decoration, appear almost like buttons ***/
 li {
     list-style-type: none;
     max-width: 200px;
@@ -44,9 +51,9 @@ li {
     border: 1px dotted #ddd;
 }
 
+/*** Accessibility: change LI's when hovering over them ***/
 li:hover {
     cursor: pointer;
-    /* background-color: yellow; */
     color: white;
 }
 
@@ -55,27 +62,31 @@ section {
     text-align: center;
 }
 
+/*** Where our game "how to play" instructions go-- hidden once game has started ***/
 .gameDescription {
     display: block;
 }
 
+/*** Our scores form, visible only when game has ended ***/
 .myscoresform {
     display: none;
 }
 
+/*** Turn successful answers green when clicked on ***/
 .success {
     padding: 10px;
     background-color: green;
     color: white;
 }
 
+/*** Turn wrong answers red when clicked on ***/
 .error {
     padding: 10px;
     background-color: red;
     color: white;
 }
 
-/*** Our Button styles ***/
+/*** Button styles (Start Game, Clear All High Scores, Play Again, Go Back) ***/
 .btn {
     border: none;
     background-color: darkblue;
@@ -106,6 +117,7 @@ button[disabled] {
     background: #c0c7cf;
 }
 
+/*** Display content centered ***/
 .center {
     display: flex;
     justify-content: center;
