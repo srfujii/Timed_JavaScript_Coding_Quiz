@@ -160,7 +160,6 @@ function askQuestions() {
     ulArray[qToDisplay].setAttribute("style", "display: block");
 }
 
-
 function showResults() {
 
     clearInterval(timer);
@@ -176,69 +175,46 @@ function showResults() {
     submitButton = document.querySelector("#submitButton");
     console.log(submitButton);
     
-    submitButton.addEventListener("click", storeNewScore);
-}
+    submitButton.addEventListener("click", function (e) {
 
-function storeNewScore (e) {
-
-    e.preventDefault();
-
-    highScoreObject.userInitials = document.querySelector("#initials").value.trim();
-    highScoreObject.userScore = score;
-
-    if (highScoreObject.userInitials !== "") {
-
-        // Pull old local storage items and store in array
-        // Get stored value from client storage, if it exists
-        var storedScores = JSON.parse(localStorage.getItem("highScores"));
-        
-        if (storedScores == null) {
-            var storedScores = [];
-        } 
-        
-        storedScores.push(highScoreObject);
-        // Stringify and set key in localStorage to todos array
-        localStorage.setItem("highScores", JSON.stringify(storedScores));
-        displayHighScores();
-    } else {
-        alert("Please type your initials.");
-    }
-}
-
-function displayHighScores () {
-    var storedScores = JSON.parse(localStorage.getItem("highScores"));
-    var display = document.querySelector(".highscores");
-
-    console.log(storedScores);
-    console.log(display);
-
-    display.setAttribute("style", "display: block; text-align: center");
-    display.innerHTML += `<button type="button" class="btn" id="clear">Clear All High Scores</button><button type="button" class="btn" id="goback">Go Back</button>`;
-    display.innerHTML += `<ul>`;
-
-    for(var i = 0; i<storedScores.length; i++) {
-
-        display.innerHTML += `<li>${storedScores[i].userInitials}:      ${storedScores[i].userScore}</li>`;
-    }
-
-    display.innerHTML += `</ul>`;
-
-    var goBackButton = document.querySelector("#goback");
-    var clearAllButton = document.querySelector("#clear");
-
-    goBackButton.addEventListener("click", function (e) {
         e.preventDefault();
-        document.location.reload();
+
+        highScoreObject.userInitials = document.querySelector("#initials").value.trim();
+        highScoreObject.userScore = score;
+
+        if (highScoreObject.userInitials !== "") {
+
+            // Pull old local storage items and store in array
+            // Get stored value from client storage, if it exists
+            var storedScores = JSON.parse(localStorage.getItem("highScores"));
+            
+            if (storedScores == null) {
+                var storedScores = [];
+            } 
+            
+            storedScores.push(highScoreObject);
+            // Stringify and set key in localStorage to todos array
+            localStorage.setItem("highScores", JSON.stringify(storedScores));
+            
+            console.log(highScoreObject);
+            console.log(myForm);
+        }
+
+        // 
+
+        // set new submission to local storage 
+        // localStorage.setItem("highScores", JSON.stringify(highScoreObject));
+    
     });
-
-    clearAllButton.addEventListener("click", function (e) {
-        e.preventDefault();
-        //localStorage.clear();
-        display.innerHTML = `<button type="button" class="btn" id="goback">Go Back</button>`;
-    })
-
-
 }
+
+    // console.log(initials);
+    // 
+    // // If stored value doesn't exist, set counter to 0
+    // if (storedScores === null) {
+    //     scoresCounter = 0;
+    // When user clicks "Submit" button after entering their initials, we
+    
 
 
 function populateGame() {

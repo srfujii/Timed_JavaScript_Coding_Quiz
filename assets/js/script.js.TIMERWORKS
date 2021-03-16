@@ -90,14 +90,9 @@ var startGameEl = document.querySelector("#startgame");                         
 var rightWrongDisplay = document.querySelector("div.center");                   // Get a reference to where we will display Correct/Incorrect
 var content = document.querySelector("section");                                // Get a reference to our content section (where our questions will go)
 var qToDisplay = 0;                                                             // Question we are displaying
+var highScores = document.querySelector(".highScores");
 var myForm;
 var timer;
-var submitButton;
-var highScoreObject = {
-    userInitials: "",
-    userScore: 0
-  };
-
 
 function askQuestions() {
 
@@ -160,7 +155,6 @@ function askQuestions() {
     ulArray[qToDisplay].setAttribute("style", "display: block");
 }
 
-
 function showResults() {
 
     clearInterval(timer);
@@ -170,76 +164,11 @@ function showResults() {
     p.innerHTML = `Thank you for playing! 🏆🏆🏆 Final score: ${score}.`;
     p.setAttribute("style", "display:block;");
 
-    myForm = document.querySelector(".myscoresform");
-    myForm.setAttribute("style", "display:flex; justify-content:center;");
-    
-    submitButton = document.querySelector("#submitButton");
-    console.log(submitButton);
-    
-    submitButton.addEventListener("click", storeNewScore);
+    var f = document.querySelector(".myscoresform");
+    f.setAttribute("style", "display:flex; justify-content");
+
+    //localStorage.setItem()
 }
-
-function storeNewScore (e) {
-
-    e.preventDefault();
-
-    highScoreObject.userInitials = document.querySelector("#initials").value.trim();
-    highScoreObject.userScore = score;
-
-    if (highScoreObject.userInitials !== "") {
-
-        // Pull old local storage items and store in array
-        // Get stored value from client storage, if it exists
-        var storedScores = JSON.parse(localStorage.getItem("highScores"));
-        
-        if (storedScores == null) {
-            var storedScores = [];
-        } 
-        
-        storedScores.push(highScoreObject);
-        // Stringify and set key in localStorage to todos array
-        localStorage.setItem("highScores", JSON.stringify(storedScores));
-        displayHighScores();
-    } else {
-        alert("Please type your initials.");
-    }
-}
-
-function displayHighScores () {
-    var storedScores = JSON.parse(localStorage.getItem("highScores"));
-    var display = document.querySelector(".highscores");
-
-    console.log(storedScores);
-    console.log(display);
-
-    display.setAttribute("style", "display: block; text-align: center");
-    display.innerHTML += `<button type="button" class="btn" id="clear">Clear All High Scores</button><button type="button" class="btn" id="goback">Go Back</button>`;
-    display.innerHTML += `<ul>`;
-
-    for(var i = 0; i<storedScores.length; i++) {
-
-        display.innerHTML += `<li>${storedScores[i].userInitials}:      ${storedScores[i].userScore}</li>`;
-    }
-
-    display.innerHTML += `</ul>`;
-
-    var goBackButton = document.querySelector("#goback");
-    var clearAllButton = document.querySelector("#clear");
-
-    goBackButton.addEventListener("click", function (e) {
-        e.preventDefault();
-        document.location.reload();
-    });
-
-    clearAllButton.addEventListener("click", function (e) {
-        e.preventDefault();
-        //localStorage.clear();
-        display.innerHTML = `<button type="button" class="btn" id="goback">Go Back</button>`;
-    })
-
-
-}
-
 
 function populateGame() {
 
@@ -281,9 +210,23 @@ function start()
 /*** Main Code ***/
 document.getElementById("timer").textContent = numSeconds;
 
-
 /*** Event Listeners ***/
 startGameEl.addEventListener("click", function() {
     //Start the game when user clicks the "Start Game" button
     start();
 });
+
+// When user clicks "Submit" after entering their initials, we
+//   win.textContent = winCounter;
+//  localStorage.setItem("winCount", winCounter);
+/* myForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const initials = myForm.initials.value.trim();
+    myForm.reset();
+
+    localStorage.setItem(initials);
+
+    console.log(initials);
+
+}); */
